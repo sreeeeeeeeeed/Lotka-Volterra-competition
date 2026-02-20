@@ -7,6 +7,7 @@ Website where you get to tweak the parameters for the lotka volterra DEs and see
 
 
 Inspirations:  
-https://www.youtube.com/@PrimerBlobs/videos 
+https://www.youtube.com/@PrimerBlobs/videos  
 Sher and Molles Ecology for the amazing derivation and explanation of the equations.
+
 
