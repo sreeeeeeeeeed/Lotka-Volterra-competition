@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interspecific Competition</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <h1>Interspecific Competition Model</h1>
+
+  <p class="note">
+    Model: dN₁/dt = r₁N₁(1 - (N₁ + α₁₂N₂)/K₁), dN₂/dt = r₂N₂(1 - (N₂ + α₂₁N₁)/K₂).
+    Here r is intrinsic growth, K is carrying capacity, and α terms are competition effects.
+  </p>
+
+  <div id="controls">
+    <label>Preset
+      <select id="preset">
+        <option value="species1">Species 1 wins</option>
+        <option value="species2">Species 2 wins</option>
+        <option value="unstable">Unstable equilibrium</option>
+        <option value="stable">Stable equilibrium</option>
+      </select>
+    </label>
+    <button id="applyPreset" type="button">Apply preset</button>
+
+    <label>r₁ <input id="r1" type="number" step="0.01" value="1" /></label>
+    <label>r₂ <input id="r2" type="number" step="0.01" value="1" /></label>
+    <label>K₁ <input id="k1" type="number" step="0.1" value="120" /></label>
+    <label>K₂ <input id="k2" type="number" step="0.1" value="90" /></label>
+    <label>α₁₂ <input id="a12" type="number" step="0.01" value="0.8" /></label>
+    <label>α₂₁ <input id="a21" type="number" step="0.01" value="1.1" /></label>
+    <label>N₁₀ <input id="n10" type="number" step="0.1" value="30" /></label>
+    <label>N₂₀ <input id="n20" type="number" step="0.1" value="30" /></label>
+    <label>T max <input id="tMax" type="number" step="1" value="60" /></label>
+    <label>dt <input id="dt" type="number" step="0.01" value="0.05" /></label>
+    <button id="update" type="button">Update</button>
+  </div>
+
+  <p class="note">Population vs Time: trajectories of species 1 (N₁) and species 2 (N₂).</p>
+  <div id="popTime" class="plot"></div>
+
+  <p class="note">ZNGIs + Vector Field: the two sloped ZNGI lines are dN₁/dt = 0 and dN₂/dt = 0</p>
+  <div id="isoclineField" class="plot"></div>
+
+  <p class="note">Phase Space: system trajectory in (N₁, N₂) space.</p>
+  <div id="phaseSpace" class="plot"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
